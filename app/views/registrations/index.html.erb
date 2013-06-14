@@ -1,0 +1,27 @@
+<div class="page-header">
+  <%= link_to new_registration_path, :class => 'btn btn-primary' do %>
+    <i class="icon-plus icon-white"></i>
+    New Registration
+  <% end %>
+  <h1>Listing registrations</h1>
+</div>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+<% @registrations.each do |registration| %>
+    <tr>
+      <td><%= link_to 'Show', registration %></td>
+      <td><%= link_to 'Edit', edit_registration_path(registration) %></td>
+      <td><%= link_to 'Destroy', registration, confirm: 'Are you sure?', method: :delete %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>

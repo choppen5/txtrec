@@ -1,0 +1,67 @@
+<div class="page-header">
+	
+	
+	<div class="container">
+
+	     <!-- Main hero unit for a primary marketing message or call to action -->
+	     <div class="hero-unit">
+	       <h1>TxtRec! 415 692 6291</h1>
+	       <p>TxtRec is for getting recommendations from your friends via text messages.  <p>Have you ever been out, and need a recommendation *now* - from somebody you know? 
+		<p>That is what TxtRec is for. You don't have time to wait around on FaceBook, hoping the right people see it, or call friends individually. Use TxtRec.</p>
+	
+	     </div>
+		
+	     <!-- Example row of columns -->
+	     <div class="row">
+	       <div class="span4">
+	         <h2>Step 1:</h2>
+	         <p>Add yourself with "New User" button.  Then, add your US phone number. </p>
+
+	       </div>
+	       <div class="span4">
+	         <h2>Step 2:</h2>
+	         <p>Add your friends phone numbers - anybody you want a recommendation from. </p>
+
+	      </div>
+	       <div class="span4">
+	         <h2>Step 3:</h2>
+	         <p>Text TxtRec at +1 415 692 6291 when you need a recommendation - all your friends will get it and route replies back to you!</p>
+	
+	       </div>
+	     </div>
+
+  <hr>	
+	
+  <%= link_to new_user_path, :class => 'btn btn-primary' do %>
+    <i class="icon-plus icon-white"></i>
+    New User
+  <% end %>
+  <h1>TxtRec Users</h1>
+</div>
+
+
+
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Usernumber</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+<% @users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.usernumber %></td>
+      <td><%= link_to 'Add phone numbers', user %></td>
+      <td><%= link_to 'Edit', edit_user_path(user) %></td>
+      <td><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>

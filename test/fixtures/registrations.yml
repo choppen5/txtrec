@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  regname: MyString
+  renumber: MyString
+  user: 
+
+two:
+  regname: MyString
+  renumber: MyString
+  user: 

@@ -1,0 +1,80 @@
+<div class="page-header">
+  <%= link_to users_path, :class => 'btn' do %>
+    <i class="icon-list-alt"></i>
+    Back
+  <% end %>
+
+  <h1>Address Book</h1>
+</div>
+
+<div>
+  <h1><%= @user.name %>  : <%= @user.usernumber %> 
+  <%= link_to edit_user_path(@user), :class => 'btn btn-primary' do %>
+    <i class="icon-pencil icon-white"></i>
+    Edit
+  <% end %>
+ </h1>
+</div>
+<br>
+<br>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Usernumber</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+<tbody>
+<h2>These #'s will get a SMS when <%= @user.name%> sends a sms to : +14156926291 </h2>
+<% @user.registrations.each do |registration| %>
+    <tr>
+	<td>
+    <b>User:</b>
+    <%= registration.regname %>
+	</td> 
+ 
+  	<td>
+    <b>Number:</b>
+    <%= registration.renumber %>
+  	</td>
+	<td><%= link_to 'Destroy', registration_path(registration), confirm: 'Are you sure?', method: :delete %></td>
+	</tr>
+<% end %>
+</tbody>
+</table>
+
+<h2>Add to addresses:</t2>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Number</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+<tbody>
+<tr>
+<%= form_for([@user, @user.registrations.build]) do |f| %>
+<tr>
+  <td>	
+  <div class="field">
+    <%= f.text_field :regname %>
+  </div>
+  </td>
+  <td>
+  <div class="field">
+    <%= f.text_field :renumber %>
+  </div>
+  </td> 
+  <td>	
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  </td>
+</tr>
+<% end %>
+<tbody>
+</table>	
